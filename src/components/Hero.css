@@ -1,0 +1,239 @@
+/* ───── Hero Section ───── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 0;
+  overflow: hidden;
+}
+
+/* Background logo watermark */
+.hero__watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1800px;
+  height: 1400px;
+  opacity: 0;              /* GSAP controls this */
+  pointer-events: none;
+  z-index: 0;
+  will-change: transform, opacity, filter;
+}
+
+.hero__watermark img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Center content */
+.hero__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.hero__subtitle {
+  font-size: 2.5rem;
+  font-weight: 300;
+  letter-spacing: 0.05em;
+  color: var(--color-text);
+  will-change: clip-path, opacity;
+}
+
+.hero__title {
+  font-size: 6rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--color-text);
+}
+
+/* Clip wrapper — hides chars below the baseline */
+.hero__char-wrap {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.25em;    /* breathing room for descenders like g, y, p */
+}
+
+.hero__char {
+  display: inline-block;
+  transform-origin: center bottom;
+  will-change: transform;
+}
+
+.hero__signature {
+  width: 280px;
+  height: 124px;
+  margin-top: 20px;
+  will-change: transform, opacity;
+}
+
+.hero__signature img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+/* CTA Buttons */
+.hero__buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 60px;
+}
+
+.hero__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 48px;
+  font-size: 1.1rem;
+  font-weight: 400;
+  border-radius: 100px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+  will-change: transform, opacity;
+}
+
+.hero__btn--primary {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+.hero__btn--primary:hover {
+  background: rgba(255, 255, 255, 0.85);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(255, 255, 255, 0.12);
+}
+
+.hero__btn--secondary {
+  background: transparent;
+  color: var(--color-text);
+  border: 1px solid var(--color-border-hover);
+}
+
+.hero__btn--secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-text);
+  transform: translateY(-3px) scale(1.02);
+}
+
+/* Social icons sidebar */
+.hero__socials {
+  position: absolute;
+  top: 26px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.hero__social-icon {
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;      /* GSAP controls this */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  filter: invert(1);
+  will-change: transform, opacity;
+}
+
+.hero__social-icon:hover {
+  opacity: 1 !important;
+  transform: scale(1.2) translateX(-4px);
+}
+
+.hero__social-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ───── Responsive ───── */
+@media (max-width: 1200px) {
+  .hero__title {
+    font-size: 4.5rem;
+  }
+  .hero__subtitle {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 3rem;
+  }
+  .hero__subtitle {
+    font-size: 1.4rem;
+  }
+  .hero__signature {
+    width: 200px;
+    height: 90px;
+  }
+  .hero__buttons {
+    margin-top: 40px;
+  }
+  .hero__socials {
+    position: relative;
+    flex-direction: row;
+    top: auto;
+    right: auto;
+    margin-top: 40px;
+    justify-content: center;
+  }
+  .hero__btn {
+    padding: 12px 32px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 0;
+  }
+  .hero__title {
+    font-size: 2.2rem;
+  }
+  .hero__subtitle {
+    font-size: 1.1rem;
+  }
+  .hero__signature {
+    width: 160px;
+    height: 72px;
+    margin-top: 12px;
+  }
+  .hero__buttons {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+    padding: 0 24px;
+  }
+  .hero__btn {
+    padding: 14px 24px;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: center;
+  }
+  .hero__socials {
+    gap: 16px;
+    margin-top: 32px;
+  }
+  .hero__social-icon {
+    width: 36px;
+    height: 36px;
+  }
+}

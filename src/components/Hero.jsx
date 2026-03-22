@@ -83,12 +83,7 @@ export default function Hero() {
 
       <div className="hero__content">
         <p className="hero__subtitle">Graphic Designer</p>
-        <h1 className="hero__title">
-          smegomade<sup className="hero__g-mark">g</sup>
-          <div className="hero__signature">
-            <img src={signatureSrc} alt="Signature" />
-          </div>
-        </h1>
+        <h1 className="hero__title">smegomade<sup className="hero__g-mark">g</sup></h1>
         <div className="hero__buttons">
           <a href="#work" className="hero__btn hero__btn--primary">Explore</a>
         </div>

@@ -253,7 +253,7 @@
 .cover-featured__main img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 .cover-featured__side {
   display: grid;
@@ -267,8 +267,11 @@
 .cover-featured__side-img img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   transition: transform 0.5s var(--ease-out);
+}
+.cover-featured__side-img:nth-child(3) {
+  grid-column: span 2;
 }
 .cover-featured__side-img:hover img {
   transform: scale(1.05);

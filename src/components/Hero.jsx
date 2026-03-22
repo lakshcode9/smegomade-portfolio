@@ -77,14 +77,6 @@ export default function Hero() {
         1.2
       );
 
-      // 6. Subtle continuous watermark float
-      gsap.to('.hero__watermark', {
-        yPercent: -2,
-        duration: 6,
-        ease: 'sine.inOut',
-        yoyo: true,
-        repeat: -1,
-      });
     }, heroRef);
 
     return () => ctx.revert();

@@ -10,10 +10,12 @@ import TypographyPage from './pages/TypographyPage.jsx';
 import RetrogradniPage from './pages/RetrogradniPage.jsx';
 import TwoDragonsPage from './pages/TwoDragonsPage.jsx';
 import ColdMindsPage from './pages/ColdMindsPage.jsx';
+import CustomCursor from './components/CustomCursor.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <BrowserRouter>
+      <CustomCursor />
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/work/covers" element={<CoversPage />} />

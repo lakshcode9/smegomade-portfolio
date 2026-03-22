@@ -98,7 +98,6 @@ export default function Hero() {
         </h1>
         <div className="hero__buttons">
           <a href="#work" className="hero__btn hero__btn--primary">Explore</a>
-          <a href="#about" className="hero__btn hero__btn--secondary">Contact</a>
         </div>
       </div>
 

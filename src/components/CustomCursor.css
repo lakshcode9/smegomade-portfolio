@@ -10,6 +10,6 @@
   .poster-grid__item,
   .see-also__card {
     /* Set hotspot to 0 0 (top left of the arrow) */
-    cursor: url('/images/cursor_v3.png') 0 0, auto !important;
+    cursor: url('/images/cursor_v4.png') 0 0, auto !important;
   }
 }

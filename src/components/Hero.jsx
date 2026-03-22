@@ -24,14 +24,7 @@ export default function Hero() {
       // ── Master timeline ──
       const tl = gsap.timeline({ delay: 0.3 });
 
-      // 1. Watermark: deep scale + blur dissolve
-      tl.fromTo(
-        '.hero__watermark',
-        { scale: 1.4, opacity: 0, filter: 'blur(30px)' },
-        { scale: 1, opacity: 0.04, filter: 'blur(0px)', duration: 2.4, ease: smoothOut }
-      );
-
-      // 2. Subtitle: fade in
+      // 1. Subtitle: fade in
       tl.fromTo(
         '.hero__subtitle',
         { opacity: 0, y: 10 },

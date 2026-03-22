@@ -71,17 +71,16 @@
   filter: brightness(1.1);
 }
 
-/* ── Masonry / Poster Grid ── */
+/* ── Precise Posters Grid (3-2-3-3-2-3 format) ── */
 .poster-grid {
-  column-count: 3;
-  column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
   padding: 60px 60px 0;
   max-width: 1400px;
   margin: 0 auto;
 }
 .poster-grid__item {
-  break-inside: avoid;
-  margin-bottom: 20px;
   position: relative;
   overflow: hidden;
   border: 0.667px solid rgba(255, 255, 255, 0.15);
@@ -377,15 +376,13 @@
   /* All grids → 2 columns */
   .gallery-grid,
   .clothing-grid,
-  .typo-grid {
+  .typo-grid,
+  .poster-grid {
     grid-template-columns: repeat(2, 1fr);
     padding: 40px 20px 0;
   }
-
-  /* Poster masonry → 2 columns */
-  .poster-grid {
-    column-count: 2;
-    padding: 40px 20px 0;
+  .poster-grid__item {
+    grid-column: span 1 !important;
   }
 
   /* Cover featured */
@@ -468,9 +465,13 @@
   }
 
   .gallery-grid,
-  .clothing-grid {
+  .clothing-grid,
+  .poster-grid {
     grid-template-columns: 1fr;
     padding: 30px 16px 0;
+  }
+  .poster-grid__item {
+    grid-column: span 1 !important;
   }
 
   .typo-grid {
@@ -479,11 +480,6 @@
   }
   .typo-grid__item {
     aspect-ratio: auto;
-  }
-
-  .poster-grid {
-    column-count: 1;
-    padding: 30px 16px 0;
   }
 
   .cover-featured {

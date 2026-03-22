@@ -18,17 +18,6 @@ export default function Hero() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Split the title into individual chars wrapped in clip containers
-      const titleEl = heroRef.current.querySelector('.hero__title');
-      const titleText = titleEl.textContent;
-      titleEl.innerHTML = titleText
-        .split('')
-        .map(
-          (ch) =>
-            `<span class="hero__char-wrap"><span class="hero__char">${ch}</span></span>`
-        )
-        .join('');
-
       // Custom ease for luxury feel
       const smoothOut = 'expo.out';
 
@@ -42,28 +31,15 @@ export default function Hero() {
         { scale: 1, opacity: 0.04, filter: 'blur(0px)', duration: 2.4, ease: smoothOut }
       );
 
-      // 2. Subtitle: clip-path wipe from left to right
+      // 2. Subtitle: fade in
       tl.fromTo(
         '.hero__subtitle',
-        { clipPath: 'inset(0 100% 0 0)', opacity: 0 },
-        { clipPath: 'inset(0 0% 0 0)', opacity: 1, duration: 1.2, ease: 'power3.inOut' },
+        { opacity: 0, y: 10 },
+        { opacity: 1, y: 0, duration: 1.2, ease: 'power3.out' },
         0.4
       );
 
-      // 3. Title chars: slide up from below their clip masks
-      tl.fromTo(
-        '.hero__char',
-        { yPercent: 120 },
-        {
-          yPercent: 0,
-          duration: 1.0,
-          stagger: { each: 0.035, from: 'start' },
-          ease: 'power3.out',
-        },
-        0.6
-      );
-
-      // 4. Signature: scale from center + soft fade
+      // 3. Signature: scale from center + soft fade
       tl.fromTo(
         '.hero__signature',
         { opacity: 0, scale: 0.85, yPercent: 15 },
@@ -71,7 +47,7 @@ export default function Hero() {
         1.1
       );
 
-      // 5. Buttons: staggered elastic entrance
+      // 4. Buttons: staggered elastic entrance
       tl.fromTo(
         '.hero__btn',
         { opacity: 0, yPercent: 60, scale: 0.9 },
@@ -86,7 +62,7 @@ export default function Hero() {
         1.4
       );
 
-      // 6. Social icons: staggered fade + slide from right
+      // 5. Social icons: staggered fade + slide from right
       tl.fromTo(
         '.hero__social-icon',
         { opacity: 0, xPercent: 80, scale: 0.7 },
@@ -101,7 +77,7 @@ export default function Hero() {
         1.2
       );
 
-      // 7. Subtle continuous watermark float
+      // 6. Subtle continuous watermark float
       gsap.to('.hero__watermark', {
         yPercent: -2,
         duration: 6,
@@ -121,8 +97,8 @@ export default function Hero() {
       </div>
 
       <div className="hero__content">
-        <p className="hero__subtitle">graphic designer</p>
-        <h1 className="hero__title">smegomade</h1>
+        <p className="hero__subtitle">Graphic Designer</p>
+        <h1 className="hero__title">smegomade<sup className="hero__g-mark">g</sup></h1>
         <div className="hero__signature">
           <img src={signatureSrc} alt="Signature" />
         </div>

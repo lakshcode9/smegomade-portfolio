@@ -51,11 +51,22 @@ export default function PostersPage() {
       </div>
 
       <div className="poster-grid">
-        {posterImages.map((src, i) => (
-          <div className="poster-grid__item" key={i}>
-            <img loading="lazy" src={src} alt="" />
-          </div>
-        ))}
+        {posterImages.map((src, i) => {
+          // Calculate span based on 3-2-3-3-2-3 layout using a 6-column grid
+          // Indices that span 3 columns (takes up exactly half the container):
+          const span3Indices = [3, 4, 11, 12];
+          const span = span3Indices.includes(i) ? 3 : 2;
+          
+          return (
+            <div 
+              className="poster-grid__item" 
+              key={i} 
+              style={{ gridColumn: `span ${span}` }}
+            >
+              <img loading="lazy" src={src} alt="" />
+            </div>
+          );
+        })}
       </div>
 
       <SeeAlso exclude={['posters']} />

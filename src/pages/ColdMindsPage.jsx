@@ -7,19 +7,19 @@ import './ProjectPage.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const images = {
-  hero: '/images/cold-minds/hero.png',
-  cmLogo: '/images/cold-minds/cm-logo.png',
-  image83: '/images/cold-minds/image83.png',
+  hero: '/images/cold-minds/hero.webp',
+  cmLogo: '/images/cold-minds/cm-logo.webp',
+  image83: '/images/cold-minds/image83.webp',
   gothic: '/images/cold-minds/gothic.svg',
   gothicAlt: '/images/cold-minds/gothic-alt.svg',
-  rect2027: '/images/cold-minds/rect2027.png',
-  rect2028: '/images/cold-minds/rect2028.png',
-  rect2029: '/images/cold-minds/rect2029.png',
-  coldminds1: '/images/cold-minds/coldminds1.png',
-  rect2042: '/images/cold-minds/rect2042.png',
-  rect2043: '/images/cold-minds/rect2043.png',
-  rect2044: '/images/cold-minds/rect2044.png',
-  image85: '/images/cold-minds/image85.png',
+  rect2027: '/images/cold-minds/rect2027.webp',
+  rect2028: '/images/cold-minds/rect2028.webp',
+  rect2029: '/images/cold-minds/rect2029.webp',
+  coldminds1: '/images/cold-minds/coldminds1.webp',
+  rect2042: '/images/cold-minds/rect2042.webp',
+  rect2043: '/images/cold-minds/rect2043.webp',
+  rect2044: '/images/cold-minds/rect2044.webp',
+  image85: '/images/cold-minds/image85.webp',
 };
 
 export default function ColdMindsPage() {
@@ -48,7 +48,7 @@ export default function ColdMindsPage() {
       </div>
 
       <div className="case-study__hero-image">
-        <img src={images.hero} alt="Cold Minds hero" />
+        <img loading="lazy" src={images.hero} alt="Cold Minds hero" />
       </div>
 
       <div className="case-study__description">
@@ -56,12 +56,12 @@ export default function ColdMindsPage() {
       </div>
 
       <div className="case-study__image-grid">
-        <img src={images.image83} alt="Cold Minds product" />
-        <img src={images.cmLogo} alt="Cold Minds logo" />
+        <img loading="lazy" src={images.image83} alt="Cold Minds product" />
+        <img loading="lazy" src={images.cmLogo} alt="Cold Minds logo" />
       </div>
 
       <div className="case-study__full-width">
-        <img src={images.gothicAlt} alt="Gothic typography" />
+        <img loading="lazy" src={images.gothicAlt} alt="Gothic typography" />
       </div>
 
       <p className="case-study__description" style={{ fontWeight: 700, marginTop: '40px' }}>
@@ -69,9 +69,9 @@ export default function ColdMindsPage() {
       </p>
 
       <div className="case-study__image-grid" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
-        <img src={images.rect2027} alt="Apparel 1" />
-        <img src={images.rect2028} alt="Apparel 2" />
-        <img src={images.rect2029} alt="Apparel 3" />
+        <img loading="lazy" src={images.rect2027} alt="Apparel 1" />
+        <img loading="lazy" src={images.rect2028} alt="Apparel 2" />
+        <img loading="lazy" src={images.rect2029} alt="Apparel 3" />
       </div>
 
       <p className="case-study__description" style={{ fontWeight: 700, marginTop: '40px' }}>
@@ -79,21 +79,21 @@ export default function ColdMindsPage() {
       </p>
 
       <div className="case-study__image-grid">
-        <img src={images.coldminds1} alt="T-shirt design" />
-        <img src={images.rect2042} alt="T-shirt mockup" />
+        <img loading="lazy" src={images.coldminds1} alt="T-shirt design" />
+        <img loading="lazy" src={images.rect2042} alt="T-shirt mockup" />
       </div>
 
       <div className="case-study__full-width">
-        <img src={images.rect2043} alt="Lookbook banner" />
+        <img loading="lazy" src={images.rect2043} alt="Lookbook banner" />
       </div>
 
       <div className="case-study__image-grid">
-        <img src={images.rect2044} alt="Lookbook 1" />
-        <img src={images.image85} alt="Lookbook 2" />
+        <img loading="lazy" src={images.rect2044} alt="Lookbook 1" />
+        <img loading="lazy" src={images.image85} alt="Lookbook 2" />
       </div>
 
       <div className="case-study__logo-center">
-        <img src={images.cmLogo} alt="Cold Minds logo" />
+        <img loading="lazy" src={images.cmLogo} alt="Cold Minds logo" />
       </div>
     </div>
   );

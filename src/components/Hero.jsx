@@ -4,14 +4,14 @@ import './Hero.css';
 
 // Social icon assets
 const socialIcons = [
-  { src: '/images/icons/instagram.png', alt: 'Instagram', href: '#' },
-  { src: '/images/icons/behance.png', alt: 'Behance', href: '#' },
-  { src: '/images/icons/genius.png', alt: 'Genius', href: '#' },
-  { src: '/images/icons/email.png', alt: 'Email', href: '#' },
+  { src: '/images/icons/instagram.webp', alt: 'Instagram', href: '#' },
+  { src: '/images/icons/behance.webp', alt: 'Behance', href: '#' },
+  { src: '/images/icons/genius.webp', alt: 'Genius', href: '#' },
+  { src: '/images/icons/email.webp', alt: 'Email', href: '#' },
 ];
 
 const signatureSrc = '/images/hero/signature.svg';
-const watermarkSrc = '/images/hero/watermark.png';
+const watermarkSrc = '/images/hero/watermark.webp';
 
 export default function Hero() {
   const heroRef = useRef(null);

@@ -9,52 +9,52 @@ gsap.registerPlugin(ScrollTrigger);
 
 const featuredSets = [
   {
-    main: '/images/common/covers-bg.png',
+    main: '/images/common/covers-bg.webp',
     sides: [
-      '/images/covers/side1-1.png',
-      '/images/covers/side1-2.png',
-      '/images/covers/side1-3.png',
+      '/images/covers/side1-1.webp',
+      '/images/covers/side1-2.webp',
+      '/images/covers/side1-3.webp',
     ],
   },
   {
-    main: '/images/covers/main2.png',
+    main: '/images/covers/main2.webp',
     sides: [
-      '/images/covers/side2-1.png',
-      '/images/covers/side2-2.png',
-      '/images/covers/side2-3.png',
+      '/images/covers/side2-1.webp',
+      '/images/covers/side2-2.webp',
+      '/images/covers/side2-3.webp',
     ],
   },
   {
-    main: '/images/covers/main3.png',
+    main: '/images/covers/main3.webp',
     sides: [
-      '/images/covers/side3-1.png',
-      '/images/covers/side3-2.png',
-      '/images/covers/side3-3.png',
+      '/images/covers/side3-1.webp',
+      '/images/covers/side3-2.webp',
+      '/images/covers/side3-3.webp',
     ],
   },
   {
-    main: '/images/covers/main4.png',
+    main: '/images/covers/main4.webp',
     sides: [
-      '/images/covers/side4-1.png',
-      '/images/covers/side4-2.png',
-      '/images/covers/side4-3.png',
+      '/images/covers/side4-1.webp',
+      '/images/covers/side4-2.webp',
+      '/images/covers/side4-3.webp',
     ],
   },
 ];
 
 const otherCovers = [
-  '/images/covers/other1.png',
-  '/images/covers/other2.png',
-  '/images/covers/other3.png',
-  '/images/covers/other4.png',
-  '/images/covers/other5.png',
-  '/images/covers/other6.png',
-  '/images/covers/other7.png',
-  '/images/covers/other8.png',
-  '/images/covers/other9.png',
-  '/images/covers/other10.png',
-  '/images/covers/other11.png',
-  '/images/covers/main4.png',
+  '/images/covers/other1.webp',
+  '/images/covers/other2.webp',
+  '/images/covers/other3.webp',
+  '/images/covers/other4.webp',
+  '/images/covers/other5.webp',
+  '/images/covers/other6.webp',
+  '/images/covers/other7.webp',
+  '/images/covers/other8.webp',
+  '/images/covers/other9.webp',
+  '/images/covers/other10.webp',
+  '/images/covers/other11.webp',
+  '/images/covers/main4.webp',
 ];
 
 export default function CoversPage() {
@@ -85,12 +85,12 @@ export default function CoversPage() {
         {featuredSets.map((set, i) => (
           <div className="cover-featured__row" key={i}>
             <div className="cover-featured__main">
-              <img src={set.main} alt="" />
+              <img loading="lazy" src={set.main} alt="" />
             </div>
             <div className="cover-featured__side">
               {set.sides.map((src, j) => (
                 <div className="cover-featured__side-img" key={j}>
-                  <img src={src} alt="" />
+                  <img loading="lazy" src={src} alt="" />
                 </div>
               ))}
             </div>
@@ -103,7 +103,7 @@ export default function CoversPage() {
       <div className="gallery-grid">
         {otherCovers.map((src, i) => (
           <div className="gallery-grid__item" key={i}>
-            <img src={src} alt="" />
+            <img loading="lazy" src={src} alt="" />
           </div>
         ))}
       </div>

@@ -7,16 +7,16 @@ import './ProjectPage.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const images = {
-  hero: '/images/two-dragons/hero.png',
-  image81: '/images/two-dragons/image81.png',
-  rect2030: '/images/two-dragons/rect2030.png',
-  logoPanel: '/images/two-dragons/logo-panel.png',
+  hero: '/images/two-dragons/hero.webp',
+  image81: '/images/two-dragons/image81.webp',
+  rect2030: '/images/two-dragons/rect2030.webp',
+  logoPanel: '/images/two-dragons/logo-panel.webp',
   group750: '/images/two-dragons/group750.svg',
   group752: '/images/two-dragons/group752.svg',
   group751: '/images/two-dragons/group751.svg',
-  vector6: '/images/two-dragons/vector6.png',
-  vector7: '/images/two-dragons/vector7.png',
-  vector8: '/images/two-dragons/vector8.png',
+  vector6: '/images/two-dragons/vector6.webp',
+  vector7: '/images/two-dragons/vector7.webp',
+  vector8: '/images/two-dragons/vector8.webp',
   dragonLogo: '/images/two-dragons/dragon-logo.svg',
 };
 
@@ -46,7 +46,7 @@ export default function TwoDragonsPage() {
       </div>
 
       <div className="case-study__hero-image">
-        <img src={images.hero} alt="2 Dragons hero" />
+        <img loading="lazy" src={images.hero} alt="2 Dragons hero" />
       </div>
 
       <div className="case-study__description">
@@ -56,24 +56,24 @@ export default function TwoDragonsPage() {
       </div>
 
       <div className="case-study__image-grid">
-        <img src={images.image81} alt="Dragon render" />
-        <img src={images.rect2030} alt="Logo application" />
+        <img loading="lazy" src={images.image81} alt="Dragon render" />
+        <img loading="lazy" src={images.rect2030} alt="Logo application" />
       </div>
 
       <div className="case-study__image-grid" style={{ gridTemplateColumns: '1fr', maxWidth: '960px' }}>
-        <img src={images.group750} alt="Logo row 1" />
-        <img src={images.group752} alt="Logo row 2" />
-        <img src={images.group751} alt="Logo row 3" />
+        <img loading="lazy" src={images.group750} alt="Logo row 1" />
+        <img loading="lazy" src={images.group752} alt="Logo row 2" />
+        <img loading="lazy" src={images.group751} alt="Logo row 3" />
       </div>
 
       <div className="case-study__image-grid" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
-        <img src={images.vector6} alt="Logo variant 1" />
-        <img src={images.vector7} alt="Logo variant 2" />
-        <img src={images.vector8} alt="Logo variant 3" />
+        <img loading="lazy" src={images.vector6} alt="Logo variant 1" />
+        <img loading="lazy" src={images.vector7} alt="Logo variant 2" />
+        <img loading="lazy" src={images.vector8} alt="Logo variant 3" />
       </div>
 
       <div className="case-study__logo-center">
-        <img src={images.dragonLogo} alt="2 Dragons final logo" style={{ maxWidth: '200px' }} />
+        <img loading="lazy" src={images.dragonLogo} alt="2 Dragons final logo" style={{ maxWidth: '200px' }} />
       </div>
     </div>
   );

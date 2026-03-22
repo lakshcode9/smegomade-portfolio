@@ -6,20 +6,20 @@ import './ProjectPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const heroImage = '/images/retrogradni/hero.png';
+const heroImage = '/images/retrogradni/hero.webp';
 const images = {
-  konjBlack: '/images/retrogradni/konj-black.png',
-  typography: '/images/retrogradni/typography.png',
-  konjLogo: '/images/retrogradni/konj-logo.png',
-  obaBlack: '/images/retrogradni/oba-black.png',
-  crveno: '/images/retrogradni/crveno.png',
-  tvrdjava: '/images/retrogradni/tvrdjava.png',
-  rect2034: '/images/retrogradni/rect2034.png',
-  rect2033: '/images/retrogradni/rect2033.png',
-  konjLogoPng: '/images/retrogradni/konj-logo-final.png',
-  image88: '/images/retrogradni/image88.png',
-  rect2035: '/images/retrogradni/rect2035.png',
-  png2: '/images/retrogradni/spread.png',
+  konjBlack: '/images/retrogradni/konj-black.webp',
+  typography: '/images/retrogradni/typography.webp',
+  konjLogo: '/images/retrogradni/konj-logo.webp',
+  obaBlack: '/images/retrogradni/oba-black.webp',
+  crveno: '/images/retrogradni/crveno.webp',
+  tvrdjava: '/images/retrogradni/tvrdjava.webp',
+  rect2034: '/images/retrogradni/rect2034.webp',
+  rect2033: '/images/retrogradni/rect2033.webp',
+  konjLogoPng: '/images/retrogradni/konj-logo-final.webp',
+  image88: '/images/retrogradni/image88.webp',
+  rect2035: '/images/retrogradni/rect2035.webp',
+  png2: '/images/retrogradni/spread.webp',
 };
 
 export default function RetrogradniPage() {
@@ -48,7 +48,7 @@ export default function RetrogradniPage() {
       </div>
 
       <div className="case-study__hero-image">
-        <img src={heroImage} alt="Retrogradni hero" />
+        <img loading="lazy" src={heroImage} alt="Retrogradni hero" />
       </div>
 
       <div className="case-study__description">
@@ -60,36 +60,36 @@ export default function RetrogradniPage() {
       </p>
 
       <div className="case-study__image-grid">
-        <img src={images.image88} alt="Retrogradni emblem" />
-        <img src={images.konjBlack} alt="Horse on black" />
+        <img loading="lazy" src={images.image88} alt="Retrogradni emblem" />
+        <img loading="lazy" src={images.konjBlack} alt="Horse on black" />
       </div>
 
       <div className="case-study__image-grid">
-        <img src={images.rect2035} alt="Retrogradni layout" />
-        <img src={images.typography} alt="Typography" />
+        <img loading="lazy" src={images.rect2035} alt="Retrogradni layout" />
+        <img loading="lazy" src={images.typography} alt="Typography" />
       </div>
 
       <div className="case-study__image-grid">
-        <img src={images.konjLogo} alt="Konj logo" />
-        <img src={images.obaBlack} alt="Both on black" />
+        <img loading="lazy" src={images.konjLogo} alt="Konj logo" />
+        <img loading="lazy" src={images.obaBlack} alt="Both on black" />
       </div>
 
       <div className="case-study__image-grid">
-        <img src={images.crveno} alt="Red variant" />
-        <img src={images.tvrdjava} alt="Fortress" />
+        <img loading="lazy" src={images.crveno} alt="Red variant" />
+        <img loading="lazy" src={images.tvrdjava} alt="Fortress" />
       </div>
 
       <div className="case-study__image-grid">
-        <img src={images.rect2034} alt="Application 1" />
-        <img src={images.rect2033} alt="Application 2" />
+        <img loading="lazy" src={images.rect2034} alt="Application 1" />
+        <img loading="lazy" src={images.rect2033} alt="Application 2" />
       </div>
 
       <div className="case-study__full-width">
-        <img src={images.png2} alt="Retrogradni full spread" />
+        <img loading="lazy" src={images.png2} alt="Retrogradni full spread" />
       </div>
 
       <div className="case-study__logo-center">
-        <img src={images.konjLogoPng} alt="Retrogradni logo" />
+        <img loading="lazy" src={images.konjLogoPng} alt="Retrogradni logo" />
       </div>
     </div>
   );

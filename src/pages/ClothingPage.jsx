@@ -8,15 +8,15 @@ import './ProjectPage.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const clothingImages = [
-  '/images/common/clothing-bg.png',
-  '/images/clothing/cloth2.png',
-  '/images/clothing/cloth3.png',
-  '/images/clothing/cloth4.png',
-  '/images/clothing/cloth5.png',
-  '/images/clothing/cloth6.png',
-  '/images/clothing/cloth7.png',
-  '/images/clothing/cloth8.png',
-  '/images/clothing/cloth9.png',
+  '/images/common/clothing-bg.webp',
+  '/images/clothing/cloth2.webp',
+  '/images/clothing/cloth3.webp',
+  '/images/clothing/cloth4.webp',
+  '/images/clothing/cloth5.webp',
+  '/images/clothing/cloth6.webp',
+  '/images/clothing/cloth7.webp',
+  '/images/clothing/cloth8.webp',
+  '/images/clothing/cloth9.webp',
 ];
 
 export default function ClothingPage() {
@@ -46,7 +46,7 @@ export default function ClothingPage() {
       <div className="clothing-grid">
         {clothingImages.map((src, i) => (
           <div className="clothing-grid__item" key={i}>
-            <img src={src} alt="" />
+            <img loading="lazy" src={src} alt="" />
           </div>
         ))}
       </div>

@@ -8,30 +8,30 @@ import './ProjectPage.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const typoImages = [
-  '/images/typography/typo1.png',
-  '/images/typography/typo2.png',
-  '/images/typography/typo3.png',
-  '/images/typography/typo4.png',
-  '/images/typography/typo5.png',
-  '/images/typography/typo6.png',
-  '/images/typography/typo7.png',
-  '/images/typography/typo8.png',
-  '/images/typography/typo9.png',
-  '/images/typography/typo10.png',
-  '/images/typography/typo11.png',
-  '/images/typography/typo12.png',
-  '/images/typography/typo13.png',
-  '/images/typography/typo14.png',
-  '/images/typography/typo15.png',
-  '/images/typography/typo16.png',
-  '/images/typography/typo17.png',
-  '/images/typography/typo18.png',
-  '/images/typography/typo19.png',
-  '/images/typography/typo20.png',
-  '/images/typography/typo21.png',
-  '/images/typography/typo22.png',
-  '/images/common/typography-bg.png',
-  '/images/typography/typo24.png',
+  '/images/typography/typo1.webp',
+  '/images/typography/typo2.webp',
+  '/images/typography/typo3.webp',
+  '/images/typography/typo4.webp',
+  '/images/typography/typo5.webp',
+  '/images/typography/typo6.webp',
+  '/images/typography/typo7.webp',
+  '/images/typography/typo8.webp',
+  '/images/typography/typo9.webp',
+  '/images/typography/typo10.webp',
+  '/images/typography/typo11.webp',
+  '/images/typography/typo12.webp',
+  '/images/typography/typo13.webp',
+  '/images/typography/typo14.webp',
+  '/images/typography/typo15.webp',
+  '/images/typography/typo16.webp',
+  '/images/typography/typo17.webp',
+  '/images/typography/typo18.webp',
+  '/images/typography/typo19.webp',
+  '/images/typography/typo20.webp',
+  '/images/typography/typo21.webp',
+  '/images/typography/typo22.webp',
+  '/images/common/typography-bg.webp',
+  '/images/typography/typo24.webp',
 ];
 
 export default function TypographyPage() {
@@ -61,7 +61,7 @@ export default function TypographyPage() {
       <div className="typo-grid">
         {typoImages.map((src, i) => (
           <div className="typo-grid__item" key={i}>
-            <img src={src} alt="" />
+            <img loading="lazy" src={src} alt="" />
           </div>
         ))}
       </div>

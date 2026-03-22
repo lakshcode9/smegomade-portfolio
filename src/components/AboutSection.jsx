@@ -63,7 +63,7 @@ export default function AboutSection() {
         {`Hey, my name is Aleksa. I am a graphic designer based in Serbia.\nI work across all types of design. I am also a verified graphic contributor on the Genius music platform. I have worked with major Balkan artists and labels. I've built clothing brands and personal brands.`}
       </p>
       <div className="about__signature">
-        <img src={signatureSrc} alt="Signature" />
+        <img loading="lazy" src={signatureSrc} alt="Signature" />
       </div>
     </section>
   );

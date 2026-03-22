@@ -10,22 +10,22 @@ gsap.registerPlugin(ScrollTrigger);
 const categories = [
   {
     title: '"Cover Arts"',
-    bg: '/images/common/covers-bg.png',
+    bg: '/images/common/covers-bg.webp',
     path: '/work/covers',
   },
   {
     title: '"Clothing"',
-    bg: '/images/common/clothing-bg.png',
+    bg: '/images/common/clothing-bg.webp',
     path: '/work/clothing',
   },
   {
     title: '"Posters"',
-    bg: '/images/common/posters-bg.png',
+    bg: '/images/common/posters-bg.webp',
     path: '/work/posters',
   },
   {
     title: '"Typography"',
-    bg: '/images/common/typography-bg.png',
+    bg: '/images/common/typography-bg.webp',
     path: '/work/typography',
   },
 ];
@@ -77,7 +77,7 @@ export default function WorkFeed() {
         {categories.map((cat, i) => (
           <Link to={cat.path} className="work-feed__item" key={i}>
             <div className="work-feed__item-bg">
-              <img src={cat.bg} alt="" />
+              <img loading="lazy" src={cat.bg} alt="" />
             </div>
             <span className="work-feed__item-title">{cat.title}</span>
             <span className="work-feed__item-link">View</span>

@@ -9,17 +9,17 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     title: '"Cold Minds"',
-    bg: '/images/common/coldminds-card.png',
+    bg: '/images/common/coldminds-card.webp',
     path: '/work/cold-minds',
   },
   {
     title: '"Two Dragons"',
-    bg: '/images/common/twodragons-card.png',
+    bg: '/images/common/twodragons-card.webp',
     path: '/work/2-dragons',
   },
   {
     title: '"Retrogradni"',
-    bg: '/images/common/retrogradni-card.png',
+    bg: '/images/common/retrogradni-card.webp',
     path: '/work/retrogradni',
   },
 ];
@@ -68,7 +68,7 @@ export default function BrandingProjects() {
         {projects.map((project, i) => (
           <Link to={project.path} className="branding__card" key={i}>
             <div className="branding__card-bg">
-              <img src={project.bg} alt="" />
+              <img loading="lazy" src={project.bg} alt="" />
             </div>
             <span className="branding__card-title">{project.title}</span>
             <span className="branding__card-link">View</span>

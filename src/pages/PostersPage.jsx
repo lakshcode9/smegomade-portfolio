@@ -8,22 +8,22 @@ import './ProjectPage.css';
 gsap.registerPlugin(ScrollTrigger);
 
 const posterImages = [
-  '/images/posters/poster1.png',
-  '/images/common/posters-bg.png',
-  '/images/posters/poster3.png',
-  '/images/posters/poster4.png',
-  '/images/posters/poster5.png',
-  '/images/posters/poster6.png',
-  '/images/common/posters-bg2.png',
-  '/images/posters/poster8.png',
-  '/images/posters/poster9.png',
-  '/images/posters/poster10.png',
-  '/images/posters/poster11.png',
-  '/images/posters/poster12.png',
-  '/images/posters/poster13.png',
-  '/images/posters/poster14.png',
-  '/images/posters/poster15.png',
-  '/images/posters/poster16.png',
+  '/images/posters/poster1.webp',
+  '/images/common/posters-bg.webp',
+  '/images/posters/poster3.webp',
+  '/images/posters/poster4.webp',
+  '/images/posters/poster5.webp',
+  '/images/posters/poster6.webp',
+  '/images/common/posters-bg2.webp',
+  '/images/posters/poster8.webp',
+  '/images/posters/poster9.webp',
+  '/images/posters/poster10.webp',
+  '/images/posters/poster11.webp',
+  '/images/posters/poster12.webp',
+  '/images/posters/poster13.webp',
+  '/images/posters/poster14.webp',
+  '/images/posters/poster15.webp',
+  '/images/posters/poster16.webp',
 ];
 
 export default function PostersPage() {
@@ -53,7 +53,7 @@ export default function PostersPage() {
       <div className="poster-grid">
         {posterImages.map((src, i) => (
           <div className="poster-grid__item" key={i}>
-            <img src={src} alt="" />
+            <img loading="lazy" src={src} alt="" />
           </div>
         ))}
       </div>

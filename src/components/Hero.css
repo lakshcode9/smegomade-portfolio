@@ -141,11 +141,10 @@
   transform: translateY(-3px) scale(1.02);
 }
 
-/* Social icons sidebar */
 .hero__socials {
   position: absolute;
   top: 26px;
-  right: 0;
+  right: calc(var(--section-padding) * -1 + 16px);
   display: flex;
   flex-direction: column;
   gap: 20px;

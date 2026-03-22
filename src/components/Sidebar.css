@@ -2,7 +2,7 @@
 .sidebar {
   position: fixed;
   top: 0;
-  left: 24px;
+  left: 12px;
   height: 100vh;
   display: flex;
   flex-direction: column;

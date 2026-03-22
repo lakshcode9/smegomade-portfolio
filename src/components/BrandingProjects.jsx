@@ -9,7 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 const projects = [
   {
     title: '"Cold Minds"',
-    bg: '/images/common/coldminds-card.webp',
+    bg: '/images/common/retrogradni-card.webp',
     path: '/work/cold-minds',
   },
   {
@@ -19,7 +19,7 @@ const projects = [
   },
   {
     title: '"Retrogradni"',
-    bg: '/images/common/retrogradni-card.webp',
+    bg: '/images/common/coldminds-card.webp',
     path: '/work/retrogradni',
   },
 ];

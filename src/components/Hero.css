@@ -132,7 +132,8 @@
 
 .hero__socials {
   position: absolute;
-  top: 26px;
+  top: 50%;
+  transform: translateY(-50%);
   right: calc(var(--section-padding) * -1 + 16px);
   display: flex;
   flex-direction: column;

@@ -5,8 +5,8 @@ import './Hero.css';
 // Social icon assets
 const socialIcons = [
   { src: '/images/icons/instagram.webp', alt: 'Instagram', href: '#' },
-  { src: '/images/icons/behance.webp', alt: 'Behance', href: '#' },
   { src: '/images/icons/genius.webp', alt: 'Genius', href: '#' },
+  { src: '/images/icons/behance.webp', alt: 'Behance', href: '#' },
   { src: '/images/icons/email.webp', alt: 'Email', href: '#' },
 ];
 
@@ -32,15 +32,7 @@ export default function Hero() {
         0.4
       );
 
-      // 3. Signature: scale from center + soft fade
-      tl.fromTo(
-        '.hero__signature',
-        { opacity: 0, scale: 0.85, yPercent: 15 },
-        { opacity: 1, scale: 1, yPercent: 0, duration: 1.2, ease: smoothOut },
-        1.1
-      );
-
-      // 4. Buttons: staggered elastic entrance
+      // 2. Buttons: staggered elastic entrance
       tl.fromTo(
         '.hero__btn',
         { opacity: 0, yPercent: 60, scale: 0.9 },

@@ -18,7 +18,7 @@
   transform: translate(-50%, -50%);
   width: 2500px;
   height: auto;
-  opacity: 0.12;
+  opacity: 0.03;
   pointer-events: none;
   z-index: 0;
   will-change: transform, opacity, filter;
@@ -189,14 +189,6 @@
   .hero__buttons {
     margin-top: 50px;
   }
-  .hero__socials {
-    position: relative;
-    flex-direction: row;
-    top: auto;
-    right: auto;
-    margin-top: 40px;
-    justify-content: center;
-  }
   .hero__btn {
     padding: 12px 32px;
     font-size: 1rem;
@@ -234,7 +226,6 @@
   }
   .hero__socials {
     gap: 16px;
-    margin-top: 32px;
   }
   .hero__social-icon {
     width: 36px;

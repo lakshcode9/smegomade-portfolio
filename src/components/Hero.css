@@ -131,14 +131,14 @@
 }
 
 .hero__socials {
-  position: absolute;
+  position: fixed;
   top: 50%;
   transform: translateY(-50%);
-  right: calc(var(--section-padding) * -1 + 16px);
+  right: 24px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  z-index: 2;
+  z-index: 100;
 }
 
 .hero__social-icon {

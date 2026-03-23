@@ -1,11 +1,5 @@
 import './Footer.css';
 
-const socialIcons = [
-  { src: '/images/icons/instagram.webp', alt: 'Instagram', href: '#' },
-  { src: '/images/icons/behance.webp', alt: 'Behance', href: '#' },
-  { src: '/images/icons/genius.webp', alt: 'Genius', href: '#' },
-  { src: '/images/icons/email.webp', alt: 'Email', href: '#' },
-];
 
 export default function Footer() {
   return (
@@ -22,20 +16,6 @@ export default function Footer() {
       <div className="footer__divider" />
       <div className="footer__bottom">
         <span className="footer__copyright">© 2026 smegomade. All rights reserved.</span>
-        <div className="footer__socials">
-          {socialIcons.map((icon, i) => (
-            <a
-              key={i}
-              href={icon.href}
-              className="footer__social-icon"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={icon.alt}
-            >
-              <img src={icon.src} alt={icon.alt} />
-            </a>
-          ))}
-        </div>
       </div>
     </footer>
   );

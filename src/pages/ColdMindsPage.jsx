@@ -34,10 +34,10 @@ export default function ColdMindsPage() {
       gsap.from('.project-page__title', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' });
       gsap.from('.project-page__subtitle', { y: 20, opacity: 0, duration: 0.8, delay: 0.15, ease: 'power3.out' });
       gsap.from('.case-study__hero-image', { y: 40, opacity: 0, duration: 1, delay: 0.3, ease: 'power3.out' });
-      gsap.utils.toArray('.case-study__image-grid img, .case-study__full-width').forEach((el) => {
+      gsap.utils.toArray('.grid-3-col img, .case-study__full-width img, .grid-split-narrow img, .case-study__image-grid img').forEach((el) => {
         gsap.from(el, {
-          scrollTrigger: { trigger: el, start: 'top 90%' },
-          y: 50, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 92%' },
+          y: 40, opacity: 0, duration: 0.8, ease: 'power3.out',
         });
       });
     });
@@ -71,26 +71,24 @@ export default function ColdMindsPage() {
         <img loading="lazy" src={images.gothicAlt} alt="Gothic typography" />
       </div>
 
-      <p className="case-study__description" style={{ fontWeight: 700, marginTop: '40px' }}>
-        Primary gothic monogram designed for versatility across garments, labels and digital media.
-      </p>
-
-      <div className="case-study__image-grid" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
+      {/* 3-Column Apparel Grid */}
+      <div className="grid-3-col">
         <img loading="lazy" src={images.rect2027} alt="Apparel 1" {...clickable(images.rect2027)} />
         <img loading="lazy" src={images.rect2028} alt="Apparel 2" {...clickable(images.rect2028)} />
         <img loading="lazy" src={images.rect2029} alt="Apparel 3" {...clickable(images.rect2029)} />
       </div>
 
-      <p className="case-study__description" style={{ fontWeight: 700, marginTop: '40px' }}>
+      <p className="case-study__description" style={{ fontWeight: 700, marginTop: '80px', textAlign: 'center' }}>
         GRAPHIC T-SHIRT DESIGN
       </p>
 
-      <div className="case-study__image-grid">
+      {/* Split layout: Large square left, column of 2 right */}
+      <div className="grid-split-narrow" style={{ marginTop: '40px' }}>
         <img loading="lazy" src={images.coldminds1} alt="T-shirt design" {...clickable(images.coldminds1)} />
         <img loading="lazy" src={images.rect2042} alt="T-shirt mockup" {...clickable(images.rect2042)} />
       </div>
 
-      <div className="case-study__full-width" {...clickable(images.rect2043)}>
+      <div className="case-study__full-width" style={{ marginTop: '20px' }} {...clickable(images.rect2043)}>
         <img loading="lazy" src={images.rect2043} alt="Lookbook banner" />
       </div>
 
@@ -99,7 +97,7 @@ export default function ColdMindsPage() {
         <img loading="lazy" src={images.image85} alt="Lookbook 2" {...clickable(images.image85)} />
       </div>
 
-      <div className="case-study__logo-center" {...clickable(images.cmLogo)}>
+      <div className="case-study__footer-logo" {...clickable(images.cmLogo)}>
         <img loading="lazy" src={images.cmLogo} alt="Cold Minds logo" />
       </div>
 

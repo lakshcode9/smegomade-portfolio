@@ -16,21 +16,45 @@ gsap.registerPlugin(ScrollTrigger);
  */
 const clothingSets = [
   {
-    main: '/images/common/clothing-bg.webp',
-    mockups: ['/images/clothing/cloth2.webp', '/images/clothing/cloth3.webp'],
+    main: '/images/clothing/cloth2.png', // Fallback for main-1
+    mockups: ['/images/clothing/mockups/mockup-1a.png', '/images/clothing/mockups/mockup-1b.png'],
   },
   {
-    main: '/images/clothing/cloth4.webp',
-    mockups: ['/images/clothing/cloth5.webp', '/images/clothing/cloth6.webp'],
+    main: '/images/clothing/cloth3.png', // Fallback for main-2
+    mockups: ['/images/clothing/mockups/mockup-2a.png', '/images/clothing/mockups/mockup-2b.png'],
   },
   {
-    main: '/images/clothing/cloth7.webp',
-    mockups: ['/images/clothing/cloth8.webp', '/images/clothing/cloth9.webp'],
+    main: '/images/clothing/cloth4.png', // Fallback for main-3
+    mockups: ['/images/clothing/mockups/mockup-3a.png', '/images/clothing/mockups/mockup-3b.png'],
+  },
+  {
+    main: '/images/clothing/main-4.png',
+    mockups: ['/images/clothing/mockups/mockup-4a.png', '/images/clothing/mockups/mockup-4b.png'],
+  },
+  {
+    main: '/images/clothing/main-5.png',
+    mockups: ['/images/clothing/mockups/mockup-5a.png', '/images/clothing/mockups/mockup-5b.png'],
+  },
+  {
+    main: '/images/clothing/main-6.png',
+    mockups: ['/images/clothing/mockups/mockup-6a.png', '/images/clothing/mockups/mockup-6b.png'],
+  },
+  {
+    main: '/images/clothing/main-7.png', 
+    mockups: ['/images/clothing/mockups/mockup-1a.png', '/images/clothing/mockups/mockup-1b.png'],
+  },
+  {
+    main: '/images/clothing/main-8.png', 
+    mockups: ['/images/clothing/mockups/mockup-1a.png', '/images/clothing/mockups/mockup-1b.png'],
+  },
+  {
+    main: '/images/clothing/main-9.png', 
+    mockups: ['/images/clothing/mockups/mockup-1a.png', '/images/clothing/mockups/mockup-1b.png'],
   },
 ];
 
-// Also keep flat list for the grid display
-const allGridImages = clothingSets.flatMap(s => [s.main, ...s.mockups]);
+// The grid only displays the main flat-lay garment for each set
+const gridImages = clothingSets.map(s => s.main);
 
 export default function ClothingPage() {
   const [activeSet, setActiveSet] = useState(null);
@@ -70,10 +94,8 @@ export default function ClothingPage() {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  const openSet = (imgSrc) => {
-    // Find which set this image belongs to
-    const idx = clothingSets.findIndex(s => s.main === imgSrc || s.mockups.includes(imgSrc));
-    setActiveSet(idx >= 0 ? idx : 0);
+  const openSet = (index) => {
+    setActiveSet(index);
   };
 
   const goNext = (e) => { e.stopPropagation(); setActiveSet(prev => (prev + 1) % clothingSets.length); };
@@ -90,8 +112,8 @@ export default function ClothingPage() {
       </div>
 
       <div className="clothing-grid">
-        {allGridImages.map((src, i) => (
-          <div className="clothing-grid__item" key={i} onClick={() => openSet(src)} style={{ cursor: 'pointer' }}>
+        {gridImages.map((src, i) => (
+          <div className="clothing-grid__item" key={i} onClick={() => openSet(i)} style={{ cursor: 'pointer' }}>
             <img loading="lazy" src={src} alt="" />
           </div>
         ))}

@@ -34,10 +34,10 @@ export default function RetrogradniPage() {
       gsap.from('.project-page__title', { y: 30, opacity: 0, duration: 0.8, ease: 'power3.out' });
       gsap.from('.project-page__subtitle', { y: 20, opacity: 0, duration: 0.8, delay: 0.15, ease: 'power3.out' });
       gsap.from('.case-study__hero-image', { y: 40, opacity: 0, duration: 1, delay: 0.3, ease: 'power3.out' });
-      gsap.utils.toArray('.case-study__image-grid img, .case-study__full-width').forEach((el) => {
+      gsap.utils.toArray('.case-study__image-grid img, .case-study__full-width img').forEach((el) => {
         gsap.from(el, {
-          scrollTrigger: { trigger: el, start: 'top 90%' },
-          y: 50, opacity: 0, duration: 0.8, ease: 'power3.out',
+          scrollTrigger: { trigger: el, start: 'top 92%' },
+          y: 40, opacity: 0, duration: 0.8, ease: 'power3.out',
         });
       });
     });
@@ -62,10 +62,11 @@ export default function RetrogradniPage() {
         <p>Retrogradni identity merges retro-futuristic chrome aesthetics with local symbolism from the city of Niš. The horse emblem references a well-known sculpture located in the city center, while the chrome typography draws inspiration from 80s and 90s visual culture.</p>
       </div>
 
-      <p className="case-study__description" style={{ marginTop: '20px' }}>
-        Chrome-inspired identity combining 80s/90s aesthetics with cultural symbolism of Niš.
+      <p className="case-study__description" style={{ marginTop: '20px', fontWeight: 700 }}>
+        Visual Identity & Creative Direction.
       </p>
 
+      {/* 2-Column pairs as per Figma */}
       <div className="case-study__image-grid">
         <img loading="lazy" src={images.image88} alt="Retrogradni emblem" {...clickable(images.image88)} />
         <img loading="lazy" src={images.konjBlack} alt="Horse on black" {...clickable(images.konjBlack)} />
@@ -86,16 +87,16 @@ export default function RetrogradniPage() {
         <img loading="lazy" src={images.tvrdjava} alt="Fortress" {...clickable(images.tvrdjava)} />
       </div>
 
+      <div className="case-study__full-width" {...clickable(images.png2)}>
+        <img loading="lazy" src={images.png2} alt="Retrogradni full spread" />
+      </div>
+
       <div className="case-study__image-grid">
         <img loading="lazy" src={images.rect2034} alt="Application 1" {...clickable(images.rect2034)} />
         <img loading="lazy" src={images.rect2033} alt="Application 2" {...clickable(images.rect2033)} />
       </div>
 
-      <div className="case-study__full-width" {...clickable(images.png2)}>
-        <img loading="lazy" src={images.png2} alt="Retrogradni full spread" />
-      </div>
-
-      <div className="case-study__logo-center" {...clickable(images.konjLogoPng)}>
+      <div className="case-study__footer-logo" {...clickable(images.konjLogoPng)}>
         <img loading="lazy" src={images.konjLogoPng} alt="Retrogradni logo" />
       </div>
 

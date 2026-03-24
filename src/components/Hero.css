@@ -132,8 +132,8 @@
 
 .hero__socials {
   position: fixed;
-  top: 24px;
-  right: 24px;
+  top: 32px;
+  right: 32px;
   display: flex;
   flex-direction: column;
   gap: 16px;

@@ -209,7 +209,64 @@
   transition: transform 0.6s var(--ease-out);
 }
 .case-study__image-grid img:hover {
+  transform: scale(1.015);
+}
+
+/* ── Asset Specific Grids (for 1:1 Figma Parity) ── */
+
+/* 2 Columns, but specifically used for the 2x3 logo grid in Two Dragons */
+.grid-2x3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 1400px;
+  margin: 60px auto 0;
+  padding: 0 60px;
+}
+
+.grid-2x3__column {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 3 Columns (Apparel / Products) */
+.grid-3-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 0 60px;
+}
+.grid-3-col img {
+  width: 100%;
+  display: block;
+  transition: transform 0.6s var(--ease-out);
+}
+.grid-3-col img:hover {
   transform: scale(1.02);
+}
+
+/* Split Row (e.g., 2/3 + 1/3 or 1/2 + 1/2 with offset) */
+.grid-split-narrow {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 40px auto 0;
+  padding: 0 60px;
+}
+
+/* Vertical Stacking for logos/banners at the end */
+.case-study__footer-logo {
+  display: flex;
+  justify-content: center;
+  padding: 120px 0 60px;
+}
+.case-study__footer-logo img {
+  max-width: 400px;
+  height: auto;
 }
 
 .case-study__full-width {
@@ -690,5 +747,183 @@
   }
   .clothing-lightbox__mockups {
     flex-direction: row;
+  }
+}
+
+/* ═══════════════════════════════════════════════
+   2 DRAGONS Layout (Figma Node 1:63 Parity)
+   ═══════════════════════════════════════════════ */
+
+.td-wrapper {
+  background: black;
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.td-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Header ── */
+.td-header {
+  padding-top: 142px; 
+  padding-bottom: 90px;
+  position: relative;
+}
+.td-back {
+  position: absolute;
+  top: 37px;
+  left: 0;
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 300;
+  font-size: 44.4px;
+  color: white;
+  text-decoration: none;
+  transition: opacity 0.3s var(--ease-out);
+}
+.td-back:hover {
+  opacity: 0.6;
+}
+.td-title {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
+  font-size: 44.4px;
+  color: white;
+  margin: 0;
+  line-height: 1;
+}
+.td-subtitle {
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: white;
+  margin: 32px 0 0 0; 
+}
+
+/* ── Hero ── */
+.td-hero {
+  width: 100%;
+}
+.td-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Description & Sketch ── */
+.td-desc-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 68px; /* 2291 - 2223 */
+}
+.td-desc-text {
+  width: 693px;
+  margin-top: 125px; /* 2416 - 2291 */
+  font-family: 'Helvetica', sans-serif;
+  font-weight: 300;
+  font-size: 23px;
+  line-height: 1.4;
+  color: white;
+}
+.td-desc-sketch {
+  width: 546px; 
+}
+.td-desc-sketch img {
+  width: 100%;
+  display: block;
+}
+
+/* ── Logo Grid ── */
+.td-logo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 160px; 
+}
+.td-logo-col {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.td-logo-col img {
+  width: 100%;
+  display: block;
+}
+
+/* ── Mockup Split ── */
+.td-mockup-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 160px; 
+}
+.td-mockup-left {
+  display: flex;
+  align-items: stretch;
+}
+.td-mockup-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.td-mockup-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+.td-mockup-right img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ── Footer ── */
+.td-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 150px;
+  margin-bottom: 50px;
+}
+.td-footer-logo {
+  width: 207px;
+}
+.td-footer-logo img {
+  width: 100%;
+  display: block;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1440px) {
+  .td-container {
+    padding: 0 40px;
+  }
+}
+
+@media (max-width: 900px) {
+  .td-desc-section, 
+  .td-logo-grid, 
+  .td-mockup-split {
+    flex-direction: column;
+    grid-template-columns: 1fr;
+  }
+  .td-desc-text, .td-desc-sketch {
+    width: 100%;
+    margin-top: 40px;
+  }
+  .td-back {
+    position: static;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .td-header {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 }

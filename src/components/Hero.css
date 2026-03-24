@@ -132,12 +132,11 @@
 
 .hero__socials {
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 24px;
   right: 24px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 16px;
   z-index: 100;
 }
 

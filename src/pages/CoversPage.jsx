@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -57,7 +57,23 @@ const otherCovers = [
   '/images/covers/main4.webp',
 ];
 
+// Build a flat array of all images for the lightbox
+function getAllImages() {
+  const images = [];
+  featuredSets.forEach(set => {
+    images.push(set.main);
+    set.sides.forEach(s => images.push(s));
+  });
+  otherCovers.forEach(src => images.push(src));
+  return images;
+}
+
+const allImages = getAllImages();
+
 export default function CoversPage() {
+  const [lightboxIndex, setLightboxIndex] = useState(null);
+  const isOpen = lightboxIndex !== null;
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
@@ -73,6 +89,40 @@ export default function CoversPage() {
     return () => ctx.revert();
   }, []);
 
+  // Keyboard navigation for lightbox
+  const handleKey = useCallback((e) => {
+    if (!isOpen) return;
+    if (e.key === 'Escape') setLightboxIndex(null);
+    if (e.key === 'ArrowRight') setLightboxIndex(prev => (prev + 1) % allImages.length);
+    if (e.key === 'ArrowLeft') setLightboxIndex(prev => (prev - 1 + allImages.length) % allImages.length);
+  }, [isOpen]);
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleKey);
+    return () => window.removeEventListener('keydown', handleKey);
+  }, [handleKey]);
+
+  // Lock body scroll when lightbox open
+  useEffect(() => {
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [isOpen]);
+
+  const openLightbox = (src) => {
+    const idx = allImages.indexOf(src);
+    setLightboxIndex(idx >= 0 ? idx : 0);
+  };
+
+  const goNext = (e) => {
+    e.stopPropagation();
+    setLightboxIndex(prev => (prev + 1) % allImages.length);
+  };
+
+  const goPrev = (e) => {
+    e.stopPropagation();
+    setLightboxIndex(prev => (prev - 1 + allImages.length) % allImages.length);
+  };
+
   return (
     <div className="project-page">
       <Link to="/" className="project-page__back">←Back</Link>
@@ -84,12 +134,12 @@ export default function CoversPage() {
       <div className="cover-featured">
         {featuredSets.map((set, i) => (
           <div className="cover-featured__row" key={i}>
-            <div className="cover-featured__main">
+            <div className="cover-featured__main" onClick={() => openLightbox(set.main)} style={{ cursor: 'pointer' }}>
               <img loading="lazy" src={set.main} alt="" />
             </div>
             <div className="cover-featured__side">
               {set.sides.map((src, j) => (
-                <div className="cover-featured__side-img" key={j}>
+                <div className="cover-featured__side-img" key={j} onClick={() => openLightbox(src)} style={{ cursor: 'pointer' }}>
                   <img loading="lazy" src={src} alt="" />
                 </div>
               ))}
@@ -102,13 +152,33 @@ export default function CoversPage() {
       <h3 className="project-page__section-title">Other Covers</h3>
       <div className="gallery-grid">
         {otherCovers.map((src, i) => (
-          <div className="gallery-grid__item" key={i}>
+          <div className="gallery-grid__item" key={i} onClick={() => openLightbox(src)} style={{ cursor: 'pointer' }}>
             <img loading="lazy" src={src} alt="" />
           </div>
         ))}
       </div>
 
       <SeeAlso exclude={['covers']} />
+
+      {/* ── Lightbox Overlay ── */}
+      {isOpen && (
+        <div className="cover-lightbox" onClick={() => setLightboxIndex(null)}>
+          <button className="cover-lightbox__close" onClick={() => setLightboxIndex(null)} aria-label="Close">×</button>
+          <button className="cover-lightbox__arrow cover-lightbox__arrow--left" onClick={goPrev} aria-label="Previous">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+          </button>
+          <div className="cover-lightbox__img-wrap" onClick={(e) => e.stopPropagation()}>
+            <img src={allImages[lightboxIndex]} alt="" />
+          </div>
+          <button className="cover-lightbox__arrow cover-lightbox__arrow--right" onClick={goNext} aria-label="Next">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <polyline points="9 6 15 12 9 18" />
+            </svg>
+          </button>
+        </div>
+      )}
     </div>
   );
 }

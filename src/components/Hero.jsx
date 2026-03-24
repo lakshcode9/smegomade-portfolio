@@ -4,10 +4,10 @@ import './Hero.css';
 
 // Social icon assets
 const socialIcons = [
-  { src: '/images/icons/instagram.webp', alt: 'Instagram', href: '#' },
-  { src: '/images/icons/genius.webp', alt: 'Genius', href: '#' },
-  { src: '/images/icons/behance.webp', alt: 'Behance', href: '#' },
-  { src: '/images/icons/email.webp', alt: 'Email', href: '#' },
+  { src: '/images/icons/instagram.webp', alt: 'Instagram', href: 'https://instagram.com/smegomade' },
+  { src: '/images/icons/genius.webp', alt: 'Genius', href: 'https://genius.com/smegomade' },
+  { src: '/images/icons/behance.webp', alt: 'Behance', href: 'https://behance.net/smegomade' },
+  { src: '/images/icons/email.webp', alt: 'Email', href: 'mailto:smegomade@gmail.com' },
 ];
 
 const signatureSrc = '/images/hero/signature.svg';

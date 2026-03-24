@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLightbox } from '../components/Lightbox';
 import SeeAlso from './SeeAlso';
 import './ProjectPage.css';
 
@@ -35,6 +36,8 @@ const typoImages = [
 ];
 
 export default function TypographyPage() {
+  const { lightbox, openLightbox } = useLightbox(typoImages);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
@@ -60,13 +63,14 @@ export default function TypographyPage() {
 
       <div className="typo-grid">
         {typoImages.map((src, i) => (
-          <div className="typo-grid__item" key={i}>
+          <div className="typo-grid__item" key={i} onClick={() => openLightbox(src)} style={{ cursor: 'pointer' }}>
             <img loading="lazy" src={src} alt="" />
           </div>
         ))}
       </div>
 
       <SeeAlso exclude={['typography']} />
+      {lightbox}
     </div>
   );
 }

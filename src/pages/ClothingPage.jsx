@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLightbox } from '../components/Lightbox';
 import SeeAlso from './SeeAlso';
 import './ProjectPage.css';
 
@@ -20,6 +21,8 @@ const clothingImages = [
 ];
 
 export default function ClothingPage() {
+  const { lightbox, openLightbox } = useLightbox(clothingImages);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
@@ -45,13 +48,14 @@ export default function ClothingPage() {
 
       <div className="clothing-grid">
         {clothingImages.map((src, i) => (
-          <div className="clothing-grid__item" key={i}>
+          <div className="clothing-grid__item" key={i} onClick={() => openLightbox(src)} style={{ cursor: 'pointer' }}>
             <img loading="lazy" src={src} alt="" />
           </div>
         ))}
       </div>
 
       <SeeAlso exclude={['clothing']} />
+      {lightbox}
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLightbox } from '../components/Lightbox';
 import './ProjectPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -20,7 +21,11 @@ const images = {
   dragonLogo: '/images/two-dragons/dragon-logo.svg',
 };
 
+const allImages = Object.values(images);
+
 export default function TwoDragonsPage() {
+  const { lightbox, openLightbox } = useLightbox(allImages);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
@@ -37,6 +42,8 @@ export default function TwoDragonsPage() {
     return () => ctx.revert();
   }, []);
 
+  const clickable = (src) => ({ onClick: () => openLightbox(src), style: { cursor: 'pointer' } });
+
   return (
     <div className="project-page">
       <Link to="/" className="project-page__back">←Back</Link>
@@ -45,7 +52,7 @@ export default function TwoDragonsPage() {
         <p className="project-page__subtitle">Branding and logo design</p>
       </div>
 
-      <div className="case-study__hero-image">
+      <div className="case-study__hero-image" {...clickable(images.hero)}>
         <img loading="lazy" src={images.hero} alt="2 Dragons hero" />
       </div>
 
@@ -56,25 +63,27 @@ export default function TwoDragonsPage() {
       </div>
 
       <div className="case-study__image-grid">
-        <img loading="lazy" src={images.image81} alt="Dragon render" />
-        <img loading="lazy" src={images.rect2030} alt="Logo application" />
+        <img loading="lazy" src={images.image81} alt="Dragon render" {...clickable(images.image81)} />
+        <img loading="lazy" src={images.rect2030} alt="Logo application" {...clickable(images.rect2030)} />
       </div>
 
       <div className="case-study__image-grid" style={{ gridTemplateColumns: '1fr', maxWidth: '960px' }}>
-        <img loading="lazy" src={images.group750} alt="Logo row 1" />
-        <img loading="lazy" src={images.group752} alt="Logo row 2" />
-        <img loading="lazy" src={images.group751} alt="Logo row 3" />
+        <img loading="lazy" src={images.group750} alt="Logo row 1" {...clickable(images.group750)} />
+        <img loading="lazy" src={images.group752} alt="Logo row 2" {...clickable(images.group752)} />
+        <img loading="lazy" src={images.group751} alt="Logo row 3" {...clickable(images.group751)} />
       </div>
 
       <div className="case-study__image-grid" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
-        <img loading="lazy" src={images.vector6} alt="Logo variant 1" />
-        <img loading="lazy" src={images.vector7} alt="Logo variant 2" />
-        <img loading="lazy" src={images.vector8} alt="Logo variant 3" />
+        <img loading="lazy" src={images.vector6} alt="Logo variant 1" {...clickable(images.vector6)} />
+        <img loading="lazy" src={images.vector7} alt="Logo variant 2" {...clickable(images.vector7)} />
+        <img loading="lazy" src={images.vector8} alt="Logo variant 3" {...clickable(images.vector8)} />
       </div>
 
-      <div className="case-study__logo-center">
+      <div className="case-study__logo-center" {...clickable(images.dragonLogo)}>
         <img loading="lazy" src={images.dragonLogo} alt="2 Dragons final logo" style={{ maxWidth: '200px' }} />
       </div>
+
+      {lightbox}
     </div>
   );
 }

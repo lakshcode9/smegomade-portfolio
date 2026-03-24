@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLightbox } from '../components/Lightbox';
 import './ProjectPage.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -22,7 +23,11 @@ const images = {
   image85: '/images/cold-minds/image85.webp',
 };
 
+const allImages = Object.values(images);
+
 export default function ColdMindsPage() {
+  const { lightbox, openLightbox } = useLightbox(allImages);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
@@ -39,6 +44,8 @@ export default function ColdMindsPage() {
     return () => ctx.revert();
   }, []);
 
+  const clickable = (src) => ({ onClick: () => openLightbox(src), style: { cursor: 'pointer' } });
+
   return (
     <div className="project-page">
       <Link to="/" className="project-page__back">←Back</Link>
@@ -47,7 +54,7 @@ export default function ColdMindsPage() {
         <p className="project-page__subtitle">Brand Identity & Apparel Design</p>
       </div>
 
-      <div className="case-study__hero-image">
+      <div className="case-study__hero-image" {...clickable(images.hero)}>
         <img loading="lazy" src={images.hero} alt="Cold Minds hero" />
       </div>
 
@@ -56,11 +63,11 @@ export default function ColdMindsPage() {
       </div>
 
       <div className="case-study__image-grid">
-        <img loading="lazy" src={images.image83} alt="Cold Minds product" />
-        <img loading="lazy" src={images.cmLogo} alt="Cold Minds logo" />
+        <img loading="lazy" src={images.image83} alt="Cold Minds product" {...clickable(images.image83)} />
+        <img loading="lazy" src={images.cmLogo} alt="Cold Minds logo" {...clickable(images.cmLogo)} />
       </div>
 
-      <div className="case-study__full-width">
+      <div className="case-study__full-width" {...clickable(images.gothicAlt)}>
         <img loading="lazy" src={images.gothicAlt} alt="Gothic typography" />
       </div>
 
@@ -69,9 +76,9 @@ export default function ColdMindsPage() {
       </p>
 
       <div className="case-study__image-grid" style={{ gridTemplateColumns: '1fr 1fr 1fr' }}>
-        <img loading="lazy" src={images.rect2027} alt="Apparel 1" />
-        <img loading="lazy" src={images.rect2028} alt="Apparel 2" />
-        <img loading="lazy" src={images.rect2029} alt="Apparel 3" />
+        <img loading="lazy" src={images.rect2027} alt="Apparel 1" {...clickable(images.rect2027)} />
+        <img loading="lazy" src={images.rect2028} alt="Apparel 2" {...clickable(images.rect2028)} />
+        <img loading="lazy" src={images.rect2029} alt="Apparel 3" {...clickable(images.rect2029)} />
       </div>
 
       <p className="case-study__description" style={{ fontWeight: 700, marginTop: '40px' }}>
@@ -79,22 +86,24 @@ export default function ColdMindsPage() {
       </p>
 
       <div className="case-study__image-grid">
-        <img loading="lazy" src={images.coldminds1} alt="T-shirt design" />
-        <img loading="lazy" src={images.rect2042} alt="T-shirt mockup" />
+        <img loading="lazy" src={images.coldminds1} alt="T-shirt design" {...clickable(images.coldminds1)} />
+        <img loading="lazy" src={images.rect2042} alt="T-shirt mockup" {...clickable(images.rect2042)} />
       </div>
 
-      <div className="case-study__full-width">
+      <div className="case-study__full-width" {...clickable(images.rect2043)}>
         <img loading="lazy" src={images.rect2043} alt="Lookbook banner" />
       </div>
 
       <div className="case-study__image-grid">
-        <img loading="lazy" src={images.rect2044} alt="Lookbook 1" />
-        <img loading="lazy" src={images.image85} alt="Lookbook 2" />
+        <img loading="lazy" src={images.rect2044} alt="Lookbook 1" {...clickable(images.rect2044)} />
+        <img loading="lazy" src={images.image85} alt="Lookbook 2" {...clickable(images.image85)} />
       </div>
 
-      <div className="case-study__logo-center">
+      <div className="case-study__logo-center" {...clickable(images.cmLogo)}>
         <img loading="lazy" src={images.cmLogo} alt="Cold Minds logo" />
       </div>
+
+      {lightbox}
     </div>
   );
 }

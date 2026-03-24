@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useLightbox } from '../components/Lightbox';
 import SeeAlso from './SeeAlso';
 import './ProjectPage.css';
 
@@ -27,6 +28,8 @@ const posterImages = [
 ];
 
 export default function PostersPage() {
+  const { lightbox, openLightbox } = useLightbox(posterImages);
+
   useEffect(() => {
     window.scrollTo(0, 0);
     const ctx = gsap.context(() => {
@@ -52,16 +55,14 @@ export default function PostersPage() {
 
       <div className="poster-grid">
         {posterImages.map((src, i) => {
-          // Calculate span based on 3-2-3-3-2-3 layout using a 6-column grid
-          // Indices that span 3 columns (takes up exactly half the container):
           const span3Indices = [3, 4, 11, 12];
           const span = span3Indices.includes(i) ? 3 : 2;
-          
           return (
-            <div 
-              className="poster-grid__item" 
-              key={i} 
-              style={{ gridColumn: `span ${span}` }}
+            <div
+              className="poster-grid__item"
+              key={i}
+              style={{ gridColumn: `span ${span}`, cursor: 'pointer' }}
+              onClick={() => openLightbox(src)}
             >
               <img loading="lazy" src={src} alt="" />
             </div>
@@ -70,6 +71,7 @@ export default function PostersPage() {
       </div>
 
       <SeeAlso exclude={['posters']} />
+      {lightbox}
     </div>
   );
 }

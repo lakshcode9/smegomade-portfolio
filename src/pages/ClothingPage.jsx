@@ -9,22 +9,20 @@ gsap.registerPlugin(ScrollTrigger);
 
 /*
  * Each clothing set has:
- *   main  – the flat-lay garment shot (shown large, left)
- *   mockups – 2 lifestyle / model photos (stacked right)
- *
- * Structure matches the Figma wireframe exactly.
+ *   main  – the flat-lay garment shot
+ *   mockups – 2 lifestyle / model photos
  */
 const clothingSets = [
   {
-    main: '/images/clothing/cloth2.png', // Fallback for main-1
+    main: '/images/clothing/cloth2.png',
     mockups: ['/images/clothing/mockups/mockup-1a.png', '/images/clothing/mockups/mockup-1b.png'],
   },
   {
-    main: '/images/clothing/cloth3.png', // Fallback for main-2
+    main: '/images/clothing/cloth3.png',
     mockups: ['/images/clothing/mockups/mockup-2a.png', '/images/clothing/mockups/mockup-2b.png'],
   },
   {
-    main: '/images/clothing/cloth4.png', // Fallback for main-3
+    main: '/images/clothing/cloth4.png',
     mockups: ['/images/clothing/mockups/mockup-3a.png', '/images/clothing/mockups/mockup-3b.png'],
   },
   {
@@ -53,7 +51,6 @@ const clothingSets = [
   },
 ];
 
-// The grid only displays the main flat-lay garment for each set
 const gridImages = clothingSets.map(s => s.main);
 
 export default function ClothingPage() {
@@ -121,7 +118,7 @@ export default function ClothingPage() {
 
       <SeeAlso exclude={['clothing']} />
 
-      {/* ── Clothing Lightbox (Figma layout: main left + 2 mockups right) ── */}
+      {/* ── Clothing Lightbox ── */}
       {isOpen && currentSet && (
         <div className="clothing-lightbox" onClick={() => setActiveSet(null)}>
           <button className="cover-lightbox__close" onClick={() => setActiveSet(null)} aria-label="Close">×</button>

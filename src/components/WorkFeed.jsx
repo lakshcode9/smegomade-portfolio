@@ -6,7 +6,7 @@ import './WorkFeed.css';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Background images from Figma for each category
+// Background images for each category
 const categories = [
   {
     title: '"Cover Arts"',

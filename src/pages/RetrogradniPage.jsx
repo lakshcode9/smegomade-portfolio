@@ -66,7 +66,7 @@ export default function RetrogradniPage() {
         Visual Identity & Creative Direction.
       </p>
 
-      {/* 2-Column pairs as per Figma */}
+      {/* 2-Column pairs */}
       <div className="case-study__image-grid">
         <img loading="lazy" src={images.image88} alt="Retrogradni emblem" {...clickable(images.image88)} />
         <img loading="lazy" src={images.konjBlack} alt="Horse on black" {...clickable(images.konjBlack)} />

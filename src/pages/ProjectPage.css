@@ -212,7 +212,7 @@
   transform: scale(1.015);
 }
 
-/* ── Asset Specific Grids (for 1:1 Figma Parity) ── */
+/* ── Asset Specific Grids ── */
 
 /* 2 Columns, but specifically used for the 2x3 logo grid in Two Dragons */
 .grid-2x3 {
@@ -679,7 +679,7 @@
   }
 }
 
-/* ── Clothing Lightbox (Figma layout: main left + 2 mockups right) ── */
+/* ── Clothing Lightbox ── */
 .clothing-lightbox {
   position: fixed;
   top: 0;
@@ -751,7 +751,7 @@
 }
 
 /* ═══════════════════════════════════════════════
-   2 DRAGONS Layout (Figma Node 1:63 Parity)
+   2 DRAGONS Layout
    ═══════════════════════════════════════════════ */
 
 .td-wrapper {
